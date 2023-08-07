@@ -1,20 +1,27 @@
-import React from 'react';
-import '../styles/Card.css'; 
+import React, { useState } from 'react';
+import '../styles/Card.css';
 
-const Card = (props) => {
-  const { title, image, description, price } = props; 
+const Card = ({ producto }) => {
+  const { nombre, categoria, precio, stock, descripcion, img } = producto;
+  const [showDescription, setShowDescription] = useState(false);
 
   return (
     <div className="card">
-      <img src={image} alt={title} className="card-img-top" />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
-        <p className="card-price">${price}</p>
-        {/* botones, enlaces o cualquier otro contenido adicional? */}
+      <div className="card-image">
+        <img src={img} alt={nombre} className="product-image" />
+      </div>
+      <div className="card-content">
+        <h2 className="title">{nombre}</h2>
+        <p className="category">{categoria}</p>
+        <p className="price">${precio}</p>
+        <p className="stock">Stock: {stock}</p>
+        {showDescription && <p className="description">{descripcion}</p>}
+        <button onClick={() => setShowDescription(!showDescription)}>
+          {showDescription ? "Ocultar detalle" : "Ver detalle"}
+        </button>
       </div>
     </div>
   );
-}
+};
 
 export default Card;

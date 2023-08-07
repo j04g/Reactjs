@@ -1,50 +1,37 @@
 import React from 'react';
-// import '../styles/NavBar.css'; // Importamos nuestro archivo de estilos personalizados. Neutralizamos para que funcione Bulma.
+import { Link } from 'react-router-dom';
+import CartWidget from './CartWidget';
+import tolFondo from '../images/TOL fondo.jpg';
 
-const Navbar = () => {
+const Navbar = ({ cartItemCount }) => {
   return (
     <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
-          <a className="navbar-item" href="/">
-            <img src="/public/TOL fondo.jpg" alt="Logo de la tienda" width="112" height="28" />
-          </a>
-          <button className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </button>
+          <Link className="navbar-item" to="/">
+            <img src={tolFondo} alt="Logo de la tienda" width="60" height="60" />
+          </Link>
         </div>
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item" href="/">
-              Inicio
-            </a>
-            <a className="navbar-item" href="/categorias">
-              Registrarse
-            </a>
-            <a className="navbar-item" href="/categorias">
-              Visitá la carta!
-            </a>
-            <a className="navbar-item" href="/categorias">
-              Productos
-            </a>
-            <a className="navbar-item" href="/contacto">
-              Contacto
-            </a>
+            {/* Resto del código... */}
           </div>
 
           <div className="navbar-end">
             <div className="navbar-item">
-              <img src="/public/carrito.jpg" alt="Logo del carrito" className="carrito-img" />
+              <CartWidget itemCount={cartItemCount} />
+            </div>
+            <div className="navbar-item">
+              <Link to="/carrito" className="button is-link">
+                Ir al Carrito
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
-

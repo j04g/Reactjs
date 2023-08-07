@@ -1,0 +1,89 @@
+/* Estilos para el fondo de la página */
+.fondo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../images/Fachada principal.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .texto-fondo {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: right;
+  }
+  
+  /* Estilos para el contenido de la página */
+  .contenido {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .horarios-ubicacion {
+    flex-basis: 33.33%;
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .imagenes-ubicacion,
+  .imagen-wp {
+    flex-basis: 66.66%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .imagenes-ubicacion img,
+  .imagen-wp img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: visibility 0.2s, opacity 0.2s;
+  }
+  
+  .imagenes-ubicacion:hover .tooltip-text,
+  .imagen-wp:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Estilos para el efecto shake */
+  .imagenes-ubicacion img:hover {
+    animation: shake 0.5s ease infinite;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(5px);
+    }
+  }
+  

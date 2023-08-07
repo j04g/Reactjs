@@ -1,0 +1,36 @@
+.item-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .item-count button {
+    background-color: #e83e8c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .item-count button:hover {
+    background-color: #c1296f;
+  }
+  
+  .item-count input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 40px;
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  

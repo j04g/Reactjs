@@ -1,26 +1,22 @@
-
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from "./App";
 import 'bulma/css/bulma.min.css';
+import searchImage from './Api';
 
 const el = document.getElementById("root");
 
 const root = ReactDOM.createRoot(el);
 
-root.render(<App/>)
-
-/*
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App'; // Tu componente principal que contiene el Navbar, el Card y cualquier otro componente necesario.
-
-
-ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-*/
-
+searchImage()
+  .then((response) => {
+    // Aquí puedes ver la respuesta completa de la API en la consola
+    console.log('Respuesta de la API:', response.data);
+    root.render(<App />);
+  })
+  .catch((error) => {
+    // Aquí puedes manejar el error si ocurre
+    console.error('Error en la API:', error);
+    // Aquí puedes renderizar la aplicación de todas formas o mostrar un mensaje de error al usuario
+    root.render(<App />);
+  });

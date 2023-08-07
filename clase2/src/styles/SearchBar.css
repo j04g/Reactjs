@@ -1,0 +1,30 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .search-button {
+    background-color: #e83e8c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .search-button:hover {
+    background-color: #c1296f;
+  }
+  

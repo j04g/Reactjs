@@ -1,28 +1,37 @@
-import React from 'react';
-import Navbar from './components/NavBar';
-import Card from './components/Card';
-import Footer from './components/Footer';
-import './components/Productos.js';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Navbar from './components/NavBar';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import ProductList from './components/Productos';
+import Carrito from './components/Carrito';
 
 const App = () => {
+  const [cartItemCount, setCartItemCount] = useState(0);
+
+  const addToCart = (count) => {
+    setCartItemCount((prevCount) => prevCount + count);
+  };
+
   return (
-    <div>
-      <Navbar />
-      {/* productos */}
-      <Card title="Producto 1" image="/public/producto1.jpg" description="Descripción del producto 1" price={19.99} />
-      <Card title="Producto 2" image="/public/producto2.jpg" description="Descripción del producto 2" price={24.99} />
-      {/* Otros componentes y contenido */}
-      
-      <Footer />
-    </div>
+    <Router>
+      <div>
+        <Navbar cartItemCount={cartItemCount} />
+        
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/tienda">
+            <ProductList addToCart={addToCart} />
+          </Route>
+          <Route path="/carrito" component={Carrito} />
+        </Switch>
+        
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
 export default App;
-
-
-
-
-
 
